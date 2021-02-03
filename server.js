@@ -28,5 +28,21 @@ app.get('/', function (req, res){
   
 });
 
+app.get('/aumentar', function(req,res){
+
+  req.session.count+=2;
+  return res.render('contador',{
+
+    count:req.session.count});
+  });
+
+  app.get('/reinicio',function(req,res){
+req.session.count=0;
+res.redirect('/');
+
+  });
+
+
+
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
